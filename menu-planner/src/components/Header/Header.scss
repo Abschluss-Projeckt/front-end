@@ -1,0 +1,33 @@
+.header {
+  background-color: orangered;
+  justify-content: space-between;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  zindex: 999;
+}
+.nav {
+  flex-grow: 1;
+}
+.ul {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.links {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin: 0 2rem;
+  transition: color 0.2s ease-in-out;
+  font-weight: 700;
+}
