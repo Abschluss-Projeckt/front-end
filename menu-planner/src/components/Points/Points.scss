@@ -1,0 +1,58 @@
+:root {
+  --background-color: #fff;
+  --background-light: #fff;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --primary-color: rgb(26, 255, 0);
+  --text-color: #0a0a0a;
+  --text-light: #575757;
+  --font-size: 1rem;
+  --animation-speed: 1;
+}
+@function getgetAnimationDuration($durationn: number) {
+  @return calc($durationn * var(--animation-speed));
+}
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+.points {
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 10%;
+  align-items: center;
+}
+.partx {
+  width: 50%;
+}
+img {
+  width: 95%;
+  height: 350px;
+}
+.typo1 {
+  padding-left: 1em;
+}
+.why {
+  border-left: 0.3em solid var(--primary-color);
+  margin-bottom: 0.5em;
+  padding: 0.1em 0 0.1em 0.5em;
+  color: var(--text-light);
+  font-weight: bolder;
+  transform: translateX(100%);
+  opacity: 0;
+  animation: getgetAnimationDuration(0.5s) slideInRight forwards;
+  @for $i from 1 through 6 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.1}s;
+    }
+  }
+}
+.start {
+  margin-top: 0.7em;
+}

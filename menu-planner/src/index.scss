@@ -1,0 +1,34 @@
+:root {
+  --background-color: #fff;
+  --background-light: #fff;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --primary-color: rgb(26, 255, 0);
+  --text-color: #0a0a0a;
+  --text-light: #575757;
+  --font-size: 1rem;
+  --animation-speed: 1;
+}
+
+body {
+  display: block;
+  width: 100%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: unset;
+}
+body {
+  font-size: var(--font-size);
+  font-family: sans-serif;
+}
+a {
+  text-decoration: none;
+}
+img {
+  object-fit: cover;
+}
+button {
+  border: none;
+}

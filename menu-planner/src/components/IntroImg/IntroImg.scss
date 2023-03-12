@@ -1,0 +1,13 @@
+.IntroImg {
+  height: 0;
+  width: 100%;
+  position: relative;
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 8px;
+    height: 100%;
+    width: 100%;
+  }
+}

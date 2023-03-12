@@ -26,22 +26,19 @@ function Header() {
   ];
 
   return (
-    <>
-      <div className="header container">
-        <a href="/" className="logo">
-          Baba<span>Ghanoush</span>
-        </a>
-        <nav className="navi">
-          {links.map((link) => (
-            <a href={link.path} key={link.name}>
-              {link.name}
-            </a>
-          ))}
-        </nav>
-        <Navigationicon />
-      </div>
-      <Navigation />
-    </>
+    <div className="header container">
+      <a href="/" className="logo">
+        Baba<span>Ghanoush</span>
+      </a>
+      <nav className="navi">
+        {links.map((link) => (
+          <a href={link.path} key={link.name}>
+            {link.name}
+          </a>
+        ))}
+      </nav>
+      <Navigationicon />
+    </div>
   );
 }
 

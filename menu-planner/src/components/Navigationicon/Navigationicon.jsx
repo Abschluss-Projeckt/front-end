@@ -17,7 +17,7 @@ function Navigationicon() {
         <div className="bar"></div>
         <div className="bar"></div>
       </div>
-      <Navigation close={closeN} />
+      {navigation && <Navigation close={closeN} />}
     </div>
   );
 }

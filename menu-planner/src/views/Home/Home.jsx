@@ -1,12 +1,14 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import Header from "../../components/Header/Header";
-
+import Points from "../../components/Points/Points";
+import Intro from "../../components/Intro/Intro";
+import Quote from "../../components/Quote/Quote";
+import "./Home.scss";
 function Home() {
   return (
-    <div>
-      <Header />
-      <section>home</section>
+    <div className="home">
+      <Intro />
+      <Points />
+      <Quote />
     </div>
   );
 }

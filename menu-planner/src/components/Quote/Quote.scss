@@ -1,0 +1,33 @@
+:root {
+  --background-color: #fff;
+  --background-light: #fff;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --primary-color: rgb(26, 255, 0);
+  --text-color: #0a0a0a;
+  --text-light: #575757;
+  --font-size: 1rem;
+  --animation-speed: 1;
+}
+@function getgetAnimationDuration($durationn: number) {
+  @return calc($durationn * var(--animation-speed));
+}
+.quote {
+  display: block;
+  position: fixed;
+  top: 90%;
+  left: 10%;
+}
+.q-text {
+  font-size: 1.2em;
+  line-height: 1.3;
+  color: var(--text-color);
+}
+.written-by {
+  color: var(--text-light);
+  text-align: right;
+  margin-top: 1em;
+}
+svg {
+  color: var(--primary-color);
+  margin-right: 0.2em;
+}
