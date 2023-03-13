@@ -6,7 +6,7 @@ function Intro() {
   const imgs = [
     "/imgs/salad.jpg",
     "/imgs/cheese-burger.jpg",
-    "/imgs/Baba ghanoush.jpg",
+    "/imgs/Baba ghanoush .jpg",
     "/imgs/close-up-turkish-baklava.jpg",
     "/imgs/grilled-chicken-breasts.jpg",
     "/imgs/imam-bayildi-traditional-turkish-food.jpg",

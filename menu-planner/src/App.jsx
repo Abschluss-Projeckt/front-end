@@ -6,8 +6,12 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Home />
-      <Footer />
+      <div className="container main">
+        <Home />
+      </div>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

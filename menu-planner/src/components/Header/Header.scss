@@ -9,10 +9,11 @@
   --animation-speed: 1;
 }
 .header {
+  z-index: 1;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   height: 55px;
@@ -64,9 +65,7 @@
     }
   }
 }
-.container {
-  padding-inline: 12vw;
-}
+
 @media screen and (max-width: 768px) {
   .header {
     .navi {

@@ -12,17 +12,16 @@
 body {
   display: block;
   width: 100%;
+  min-height: 100vh;
+  font-size: var(--font-size);
+  font-family: sans-serif;
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: unset;
 }
-body {
-  font-size: var(--font-size);
-  font-family: sans-serif;
-}
+
 a {
   text-decoration: none;
 }
@@ -31,4 +30,7 @@ img {
 }
 button {
   border: none;
+}
+.container {
+  padding-inline: 12vw;
 }
