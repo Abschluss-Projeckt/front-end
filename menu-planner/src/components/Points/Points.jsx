@@ -1,4 +1,3 @@
-import Item from "antd/lib/list/Item";
 import React from "react";
 import "./Points.scss";
 function Points() {

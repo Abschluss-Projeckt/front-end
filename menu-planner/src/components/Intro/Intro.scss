@@ -23,12 +23,13 @@
 }
 .intro {
   display: flex;
-  margin-bottom: 1em;
+  align-items: center;
+  margin-bottom: 5vw;
 }
 .part {
   width: 50%;
 }
-.start {
+.start1 {
   padding: 0.5em 0.7em;
   border: none;
   outline: none;
@@ -47,6 +48,7 @@
   margin-bottom: 0.2em;
   font-size: 3em;
   color: var(--text-color);
+  font-weight: 900;
 }
 .S-talk {
   color: var(--text-light);

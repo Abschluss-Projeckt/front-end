@@ -1,5 +1,5 @@
 :root {
-  --background-color: #fff;
+  --background-color: #455a6b;
   --background-light: #fff;
   --shadow-color: rgba(0, 0, 0, 0.3);
   --primary-color: rgb(26, 255, 0);
@@ -9,7 +9,7 @@
   --animation-speed: 1;
 }
 .header {
-  z-index: 1;
+  z-index: 998;
   display: flex;
   justify-content: space-around;
   align-items: center;

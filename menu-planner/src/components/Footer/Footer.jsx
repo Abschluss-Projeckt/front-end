@@ -2,14 +2,14 @@ import React from "react";
 import "./Footer.scss";
 function Footer() {
   return (
-    <div className="footer ">
+    <div className="footer container">
       <section className="f-s">
         <p className="f-title">www.BabaGhanoush.com</p>
         <p className="f-text">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere saepe
           maiores cum voluptatem hic est repellendus natus alias quos? Error
         </p>
-        <p>&copy; 2023 | BabaGhanoush Team </p>
+        <p className="f-text">&copy; 2023 | BabaGhanoush Team </p>
       </section>
       <section className="f-s">
         <p className="f-title">Contact us</p>

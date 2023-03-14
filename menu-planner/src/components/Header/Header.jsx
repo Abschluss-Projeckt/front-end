@@ -1,12 +1,13 @@
 import React from "react";
-import Navigation from "../Navigation/Navigation";
 import Navigationicon from "../Navigationicon/Navigationicon";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import ReceiptLongRoundedIcon from "@mui/icons-material/ReceiptLongRounded";
 import SettingsIcon from "@mui/icons-material/Settings";
+import { Link, useLocation } from "react-router-dom";
 
 import "./Header.scss";
 function Header() {
+  const location = useLocation();
   const links = [
     {
       name: "Home",
@@ -32,9 +33,13 @@ function Header() {
       </a>
       <nav className="navi">
         {links.map((link) => (
-          <a href={link.path} key={link.name}>
+          <Link
+            className={location.pathname == link.path ? "active" : ""}
+            to={link.path}
+            key={link.name}
+          >
             {link.name}
-          </a>
+          </Link>
         ))}
       </nav>
       <Navigationicon />

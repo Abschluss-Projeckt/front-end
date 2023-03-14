@@ -15,7 +15,7 @@ function Intro() {
     "/imgs/turkish-arabic-traditional.jpg",
   ];
   return (
-    <div className="intro ">
+    <div className="intro">
       <section className="part typo">
         <h1 className="title">About us</h1>
         <p className="S-talk">
@@ -23,7 +23,7 @@ function Intro() {
           <br />
           facilis ea quo voluptas modi non pariatur, amet quas quaerat, ipsum.
         </p>
-        <button className="start">Go Ahead</button>
+        <button className="start1">Go Ahead</button>
       </section>
       <section className="part gallery">
         {imgs.map((src, index) => (

@@ -1,9 +1,11 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Navigation.scss";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import ReceiptLongRoundedIcon from "@mui/icons-material/ReceiptLongRounded";
 import SettingsIcon from "@mui/icons-material/Settings";
 function Navigation({ close }) {
+  const location = useLocation();
   const links = [
     {
       name: "Home",
@@ -25,10 +27,18 @@ function Navigation({ close }) {
     <div className="Navigation" onClick={close}>
       {links.map((link) => {
         return (
-          <a className="Navigation-link" href={link.path} key={link.name}>
+          <Link
+            className={
+              location.pathname == link.path
+                ? "Navigation-link active"
+                : "Navigation-link"
+            }
+            to={link.path}
+            key={link.name}
+          >
             {link.icon}
             {link.name}
-          </a>
+          </Link>
         );
       })}
     </div>

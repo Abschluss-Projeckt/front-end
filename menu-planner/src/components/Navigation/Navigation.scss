@@ -17,6 +17,7 @@
   width: 260px;
   background-color: var(--background-color);
   box-shadow: 0 0 0 1670px rgba(0, 0, 0, 0.2), 3px 0 5px var(--shadow-color);
+  z-index: 999;
 }
 .Navigation-link {
   display: block;
