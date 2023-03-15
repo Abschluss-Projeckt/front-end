@@ -1,5 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
+import { RecipeContext } from "../../contexts/Context";
+
+import "./Register.scss";
 
 function Register() {
   const [value, setValue] = useState({
@@ -10,36 +14,63 @@ function Register() {
     errorMessage: "",
   });
 
+  const navigate = useNavigate();
+
+  const passControl = (e) => {
+    if (value.password === e.target.value)
+      return setValue({
+        ...value,
+        passwordAgain: e.target.value,
+        errorMessage: "Passwörter stimmen überein",
+      });
+
+    return setValue({
+      ...value,
+      passwordAgain: e.target.value,
+      errorMessage: "",
+    });
+  };
+
   const handleForm = (e) => {
     e.preventDefault();
 
-    fetch("/api/auth/register", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify({
-        userName: value.userName,
-        email: value.email,
-        password: value.password,
-        likedPhotos: [],
-        albums: [],
-      }),
-    })
-      .then((res) => {
-        if (res.status === 201) return res.json();
-        else throw Error("Email is already in use");
-      })
-      .then((json) => navigate("/login"))
-      .catch((err) => setValue({ ...value, errorMessage: err.message }));
+    try {
+      if (value.password === value.passwordAgain) {
+        fetch("api/auth/register", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({
+            userName: value.userName,
+            email: value.email,
+            password: value.password,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            navigate("/");
+          });
+      } else {
+        const err = new Error("Passwörter stimmen nicht überein");
+        throw err;
+      }
+    } catch (err) {
+      setValue({ ...value, errorMessage: err.message });
+    }
   };
 
+  const errMsg =
+    value.errorMessage === "Passwörter stimmen überein" ? "green" : "red";
+
+  console.log(value.password, value.passwordAgain);
   return (
     <div>
       <h2>Register</h2>
       <form onSubmit={handleForm}>
-        <p id="err-msg">{value.errorMessage}</p>
+        <p className={errMsg}>{value.errorMessage}</p>
         <div>
           <input
             type="text"
@@ -73,14 +104,12 @@ function Register() {
             placeholder="Password"
             required
             value={value.passwordAgain}
-            onChange={(e) =>
-              setValue({ ...value, passwordAgain: e.target.value })
-            }
+            onChange={passControl}
           />
         </div>
-        <Button type="submit" varient="btn-primary">
+        <button type="submit" varient="btn-primary">
           Sign-up
-        </Button>
+        </button>
       </form>
     </div>
   );

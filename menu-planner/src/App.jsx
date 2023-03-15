@@ -5,6 +5,7 @@ import Home from "./views/Home/Home";
 import Recipes from "./views/Recipes/Recipes";
 import Settings from "./views/Settings/Settings";
 import Footer from "./components/Footer/Footer";
+import Register from "./views/Register/Register";
 import Context from "./contexts/Context";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Header />
         <div className="container main">
           <Routes>
+            <Route path="/register" element={<Register />} />
             <Route path="/" element={<Home />} />
             <Route path="/recipes" element={<Recipes />} />
             <Route path="/settings" element={<Settings />} />
