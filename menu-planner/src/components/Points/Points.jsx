@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Points.scss";
 function Points() {
   const ern = [
@@ -20,7 +21,11 @@ function Points() {
             {item}
           </p>
         ))}
-        <button className="start">Signup now</button>
+        <button className="start">
+          <Link className="R-link" to="/register">
+            Signup now
+          </Link>
+        </button>
       </section>
     </div>
   );
