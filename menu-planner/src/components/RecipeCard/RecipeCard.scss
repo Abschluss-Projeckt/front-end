@@ -1,0 +1,58 @@
+:root {
+  --background-color: #fff;
+  --background-light: #fff;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --primary-color: rgb(26, 255, 0);
+  --text-color: #0a0a0a;
+  --text-light: #575757;
+  --font-size: 1rem;
+  --animation-speed: 1;
+}
+@function getgetAnimationDuration($durationn: number) {
+  @return calc($durationn * var(--animation-speed));
+}
+.RecipeCard {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px var(--shadow-color);
+  .IntroImg {
+    z-index: -1;
+  }
+  .RecipeCard-info {
+    padding: 1rem;
+  }
+  .user-img {
+    width: 60px;
+    height: 60px;
+    margin-top: -50px;
+    border: 3px solid var(--background-light);
+    box-shadow: 0 1px 3px var(--shadow-color);
+    border-radius: 50%;
+    z-index: 2;
+  }
+  .RecipeCard-title {
+    font-size: var(--font-size);
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    margin-top: 0.2rem;
+  }
+  .RecipeCard-desc {
+    color: var(--text-light);
+    font-size: var(--font-size);
+    letter-spacing: 1px;
+  }
+  .V-btn {
+    display: inline-block;
+    position: relative;
+    font-size: var(--font-size);
+    font-weight: 700;
+    background-color: var(--primary-color);
+    margin-top: 1.2rem;
+    padding: 8px;
+    border-radius: 5px;
+  }
+  .V-link {
+    color: white;
+  }
+}

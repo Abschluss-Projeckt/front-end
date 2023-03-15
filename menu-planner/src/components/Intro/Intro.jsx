@@ -4,15 +4,39 @@ import "./Intro.scss";
 
 function Intro() {
   const imgs = [
-    "/imgs/salad.jpg",
-    "/imgs/cheese-burger.jpg",
-    "/imgs/Baba ghanoush .jpg",
-    "/imgs/close-up-turkish-baklava.jpg",
-    "/imgs/grilled-chicken-breasts.jpg",
-    "/imgs/imam-bayildi-traditional-turkish-food.jpg",
-    "/imgs/pide-lahmajun.jpg",
-    "/imgs/spaghetti.jpg",
-    "/imgs/turkish-arabic-traditional.jpg",
+    {
+      src: "/imgs/salad.jpg",
+      title: "Vegan",
+      path: "/recipes/vegan",
+    },
+    {
+      src: "/imgs/cheese-burger.jpg",
+      title: "Fast",
+      path: "/recipes/fast",
+    },
+    { src: "/imgs/Baba ghanoush .jpg", title: "Fast", path: "/recipes/fast" },
+    {
+      src: "/imgs/close-up-turkish-baklava.jpg",
+      title: "Fast",
+      path: "/recipes/fast",
+    },
+    {
+      src: "/imgs/grilled-chicken-breasts.jpg",
+      title: "Fast",
+      path: "/recipes/fast",
+    },
+    {
+      src: "/imgs/imam-bayildi-traditional-turkish-food.jpg",
+      title: "Fast",
+      path: "/recipes/fast",
+    },
+    { src: "/imgs/pide-lahmajun.jpg", title: "Fast", path: "/recipes/fast" },
+    { src: "/imgs/spaghetti.jpg", title: "Fast", path: "/recipes/fast" },
+    {
+      src: "/imgs/turkish-arabic-traditional.jpg",
+      title: "Fast",
+      path: "/recipes/fast",
+    },
   ];
   return (
     <div className="intro">
@@ -26,8 +50,8 @@ function Intro() {
         <button className="start1">Go Ahead</button>
       </section>
       <section className="part gallery">
-        {imgs.map((src, index) => (
-          <IntroImg key={index} Srcs={src} pt={"75%"} />
+        {imgs.map((elem, index) => (
+          <IntroImg key={index} Srcs={elem.src} title={elem.title} pt={"75%"} />
         ))}
       </section>
     </div>

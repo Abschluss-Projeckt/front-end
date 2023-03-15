@@ -1,9 +1,12 @@
 import React from "react";
 import "./IntroImg.scss";
-function IntroImg({ Srcs, pt }) {
+function IntroImg({ title, Srcs, pt }) {
   return (
     <div className="IntroImg" style={{ paddingTop: pt }}>
-      <img src={Srcs} alt="." />
+      <a className="K-links" href="/recipes" alt="ref">
+        <img src={Srcs} alt="." />
+        <h5>{title}</h5>
+      </a>
     </div>
   );
 }

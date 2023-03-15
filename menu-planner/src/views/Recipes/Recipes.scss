@@ -1,0 +1,18 @@
+:root {
+  --background-color: #fff;
+  --background-light: #fff;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --primary-color: rgb(26, 255, 0);
+  --text-color: #0a0a0a;
+  --text-light: #575757;
+  --font-size: 1rem;
+  --animation-speed: 1;
+}
+@function getgetAnimationDuration($durationn: number) {
+  @return calc($durationn * var(--animation-speed));
+}
+.recipes-Con {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-gap: 1.5em;
+}
