@@ -52,7 +52,7 @@ export default function Login() {
       <form onSubmit={handleForm}>
         <p>
           Have you already registered?{" "}
-          <Link to="/login" style={{ textDecoration: "underline" }}>
+          <Link to="/register" style={{ textDecoration: "underline" }}>
             Sign up
           </Link>
         </p>
