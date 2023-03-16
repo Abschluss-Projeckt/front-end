@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import "./Recipes.scss";
@@ -59,12 +59,24 @@ const recipes = [
   },
 ];
 function Recipes() {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const searchRecipes = (searchTerm) => {
+    const filteredRecipes = recipes.filter((recipe) =>
+      recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    return filteredRecipes;
+  };
+  const handleSearch = (searchText) => {
+    setSearchTerm(searchText);
+  };
+  const filteredRecipes = searchRecipes(searchTerm);
   return (
     <div>
       <h1>Recipes</h1>
-      <SearchBar />
+      <SearchBar onSearch={handleSearch} />
       <div className="recipes-Con">
-        {recipes.map((recipe, index) => (
+        {filteredRecipes.map((recipe, index) => (
           <RecipeCard key={index} recipe={recipe} />
         ))}
       </div>

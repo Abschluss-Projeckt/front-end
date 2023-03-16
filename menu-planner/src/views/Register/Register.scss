@@ -5,45 +5,44 @@
   margin: 0 auto;
   width: 100%;
   max-width: 600px;
-}
-
-h2 {
-  font-size: 2.5rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-input {
-  padding: 1rem;
-  border-radius: 0.5rem;
-  border: none;
-  margin-bottom: 1rem;
-  width: 100%;
-  font-size: 1rem;
-}
-
-.signup-btn {
-  padding: 0.9rem;
-  border-radius: 0.5rem;
-  border: none;
-  margin-top: 1rem;
-  width: 42%;
-  font-size: 1.2rem;
-  font-weight: bolder;
-  background-color: rgb(26, 255, 0);
-  color: #fff;
-  box-shadow: 0 2px 6px var(--shadow-color);
-  &:hover {
-    box-shadow: 0 1px 3px var(--shadow-color);
+  h2 {
+    font-size: 2.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
   }
-  cursor: pointer;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  input {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    margin-bottom: 1rem;
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .signup-btn {
+    padding: 0.9rem;
+    border-radius: 0.5rem;
+    border: none;
+    margin-top: 1rem;
+    width: 42%;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    background-color: rgb(26, 255, 0);
+    color: #fff;
+    box-shadow: 0 2px 6px var(--shadow-color);
+    &:hover {
+      box-shadow: 0 1px 3px var(--shadow-color);
+    }
+    cursor: pointer;
+  }
 }
 
 .login-with-google-btn {
