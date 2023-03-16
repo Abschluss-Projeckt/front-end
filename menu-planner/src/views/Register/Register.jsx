@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -36,23 +37,26 @@ function Register() {
 
     try {
       if (value.password === value.passwordAgain) {
-        fetch("/api/auth/register", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          credentials: "include",
-          body: JSON.stringify({
-            userName: value.userName,
-            email: value.email,
-            password: value.password,
-          }),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
+        axios
+          .post(
+            "/api/auth/register",
+            {
+              userName: value.userName,
+              email: value.email,
+              password: value.password,
+            },
+            {
+              headers: {
+                "Content-Type": "application/json",
+              },
+              withCredentials: true,
+            }
+          )
+          .then((res) => {
+            console.log(res.data);
             navigate("/");
-          });
+          })
+          .catch((err) => console.log(err));
       } else {
         const err = new Error("Passwörter stimmen nicht überein");
         throw err;
@@ -105,7 +109,7 @@ function Register() {
             onChange={(e) => setValue({ ...value, email: e.target.value })}
           />
         </div>
-        <div className="mb-2">
+        <div>
           <input
             type="password"
             placeholder="Password"
@@ -114,7 +118,7 @@ function Register() {
             onChange={(e) => setValue({ ...value, password: e.target.value })}
           />
         </div>
-        <div className="mb-4">
+        <div>
           <input
             type="password"
             placeholder="Password"

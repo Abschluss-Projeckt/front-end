@@ -7,6 +7,7 @@ import Settings from "./views/Settings/Settings";
 import Footer from "./components/Footer/Footer";
 import Register from "./views/Register/Register";
 import Context from "./contexts/Context";
+import Login from "./views/Login/Login";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <div className="container main">
           <Routes>
             <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/" element={<Home />} />
             <Route path="/recipes" element={<Recipes />} />
             <Route path="/settings" element={<Settings />} />
