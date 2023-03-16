@@ -36,7 +36,7 @@ function Register() {
 
     try {
       if (value.password === value.passwordAgain) {
-        fetch("api/auth/register", {
+        fetch("/api/auth/register", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -71,15 +71,18 @@ function Register() {
       <h2>Register</h2>
       <form onSubmit={handleForm}>
         <p>
-          Have you already registered? <Link>Sign in</Link>
+          Have you already registered?{" "}
+          <Link to="/login" style={{ textDecoration: "underline" }}>
+            Sign in
+          </Link>
         </p>
-        <button type="button" class="login-with-google-btn">
+        <Link to="/api/auth/google" type="button" class="login-with-google-btn">
           <img
             src="imgs/icons8-google-48.png"
             alt="google-icon"
             className="google-icon"
           />
-        </button>
+        </Link>
 
         <div>
           <input

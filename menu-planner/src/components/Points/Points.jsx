@@ -21,11 +21,9 @@ function Points() {
             {item}
           </p>
         ))}
-        <button className="start">
-          <Link className="R-link" to="/register">
-            Signup now
-          </Link>
-        </button>
+        <Link className="R-link" to="/register">
+          <button className="start">Signup now</button>
+        </Link>
       </section>
     </div>
   );
