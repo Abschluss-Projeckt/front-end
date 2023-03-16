@@ -70,6 +70,16 @@ function Register() {
     <div>
       <h2>Register</h2>
       <form onSubmit={handleForm}>
+        <p>
+          Have you already registered? <Link>Sign in</Link>
+        </p>
+        <button type="button" class="login-with-google-btn">
+          <img
+            src="imgs/icons8-google-48.png"
+            alt="google-icon"
+            className="google-icon"
+          />
+        </button>
         <p className={errMsg}>{value.errorMessage}</p>
         <div>
           <input
@@ -107,7 +117,7 @@ function Register() {
             onChange={passControl}
           />
         </div>
-        <button type="submit" varient="btn-primary">
+        <button type="submit" className="signup-btn">
           Sign-up
         </button>
       </form>
