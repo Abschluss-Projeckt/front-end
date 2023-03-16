@@ -89,6 +89,16 @@ input {
   cursor: not-allowed;
 }
 
+.err-msg {
+  height: 18px;
+}
+.green {
+  color: rgb(26, 255, 0);
+}
+.red {
+  color: red;
+}
+
 @media only screen and (max-width: 600px) {
   .register-container {
     padding: 1rem;

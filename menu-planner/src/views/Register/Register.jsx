@@ -80,7 +80,7 @@ function Register() {
             className="google-icon"
           />
         </button>
-        <p className={errMsg}>{value.errorMessage}</p>
+
         <div>
           <input
             type="text"
@@ -117,6 +117,7 @@ function Register() {
             onChange={passControl}
           />
         </div>
+        <p className={`${errMsg} err-msg`}>{value.errorMessage}</p>
         <button type="submit" className="signup-btn">
           Sign-up
         </button>
