@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { RecipeContext } from "../../contexts/Context";
+//import { RecipeContext } from "../../contexts/Context";
 
 import "./Register.scss";
 
@@ -65,7 +65,6 @@ function Register() {
   const errMsg =
     value.errorMessage === "Passwörter stimmen überein" ? "green" : "red";
 
-  console.log(value.password, value.passwordAgain);
   return (
     <div>
       <h2>Register</h2>
@@ -76,13 +75,17 @@ function Register() {
             Sign in
           </Link>
         </p>
-        <Link to="/api/auth/google" type="button" class="login-with-google-btn">
+        <a
+          href="/api/auth/google"
+          type="button"
+          className="login-with-google-btn"
+        >
           <img
             src="imgs/icons8-google-48.png"
             alt="google-icon"
             className="google-icon"
           />
-        </Link>
+        </a>
 
         <div>
           <input
