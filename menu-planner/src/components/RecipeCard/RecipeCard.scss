@@ -12,6 +12,8 @@
   @return calc($durationn * var(--animation-speed));
 }
 .RecipeCard {
+  display: flex;
+  flex-direction: column;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 5px 15px var(--shadow-color);
@@ -19,6 +21,9 @@
     z-index: -1;
   }
   .RecipeCard-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     padding: 1rem;
   }
   .user-img {
@@ -39,6 +44,7 @@
   }
   .RecipeCard-desc {
     color: var(--text-light);
+    flex-grow: 1;
     font-size: var(--font-size);
     letter-spacing: 1px;
   }
