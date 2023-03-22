@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./RecipePage.scss";
 
@@ -11,14 +11,18 @@ function Recipe(props) {
       <p>{props.explanation}</p>
       <h3>Ingredients:</h3>
       <ul>
-        {props.ingredients.map((ingredient, index) => (
-          <li key={index}>{ingredient}</li>
+        {props?.ingredients?.map((ingredient, index) => (
+          <li key={index}>
+            <p>{ingredient.amount}</p>
+            <p>{ingredient.measure}</p>
+            <p>{ingredient.name}</p>
+          </li>
         ))}
       </ul>
       <h3>Instructions:</h3>
       <ol>
-        {props.description.map((instruction, index) => (
-          <li key={index}>{instruction}</li>
+        {props?.description?.map((description, index) => (
+          <li key={index}>{description}</li>
         ))}
       </ol>
     </div>
@@ -26,16 +30,15 @@ function Recipe(props) {
 }
 
 function RecipePage() {
-  const [recipe, setRecipe] = useState(null);
+  const [recipe, setRecipe] = useState({});
   const { recipeId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    async function fetchRecipe() {
-      const response = await axios.get(`/api/recipes/${recipeId}`);
-      setRecipe(response.data);
-    }
-
-    fetchRecipe();
+    axios
+      .get(`/api/recipes/${recipeId}`)
+      .then((res) => setRecipe(res.data))
+      .catch((err) => console.log(err));
   }, [recipeId]);
 
   if (!recipe) {
@@ -47,13 +50,13 @@ function RecipePage() {
   }
   return (
     <div className="recipe-page">
-      <button onClick={() => props.history.goBack()}>Back</button>
+      <button onClick={() => navigate("/recipes")}>Back</button>
       <Recipe
-        title={recipe.title}
+        title={recipe.name}
         image={recipe.image}
-        description={recipe.explanation}
+        explanation={recipe.explanation}
         ingredients={recipe.ingredients}
-        instructions={recipe.description}
+        description={recipe.description}
       />
     </div>
   );
