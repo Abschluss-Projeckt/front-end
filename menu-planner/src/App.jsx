@@ -8,6 +8,7 @@ import Footer from "./components/Footer/Footer";
 import Register from "./views/Register/Register";
 import Context from "./contexts/Context";
 import Login from "./views/Login/Login";
+import RecipePage from "./views/RecipePage/RecipePage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/recipes" element={<Recipes />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/recipe/:id" element={<RecipePage />} />
           </Routes>
         </div>
         <footer>

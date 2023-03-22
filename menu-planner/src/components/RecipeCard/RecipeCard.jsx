@@ -1,5 +1,6 @@
 import React from "react";
 import "./RecipeCard.scss";
+import { Link } from "react-router-dom";
 import IntroImg from "../IntroImg/IntroImg";
 
 function RecipeCard({ recipe }) {
@@ -18,9 +19,9 @@ function RecipeCard({ recipe }) {
           <p className="RecipeCard-desc">{recipe?.explanation}</p>
         )}
         <button className="V-btn">
-          <a className="V-link" href="#">
+          <Link className="V-link" to={`/recipes/${recipe._id}`}>
             VIEW RECIPE
-          </a>
+          </Link>
         </button>
       </div>
     </div>
