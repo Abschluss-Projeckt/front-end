@@ -14,7 +14,9 @@ function RecipeCard({ recipe }) {
           referrerPolicy="no-referrer"
         />
         <h3 className="RecipeCard-title">{recipe.name}</h3>
-        {/* <p className="RecipeCard-desc">{recipe.desc}</p> */}
+        {recipe.explanation && (
+          <p className="RecipeCard-desc">{recipe?.explanation}</p>
+        )}
         <button className="V-btn">
           <a className="V-link" href="#">
             VIEW RECIPE

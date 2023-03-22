@@ -43,11 +43,14 @@
     margin-top: 0.2rem;
     flex-grow: 1;
   }
-  // .RecipeCard-desc {
-  //   color: var(--text-light);
-  //   font-size: var(--font-size);
-  //   letter-spacing: 1px;
-  // }
+  .RecipeCard-desc {
+    color: var(--text-light);
+    font-size: var(--font-size);
+    letter-spacing: 1px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
   .V-btn {
     display: inline-block;
     position: relative;
