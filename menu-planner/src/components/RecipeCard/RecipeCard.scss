@@ -41,13 +41,13 @@
     color: var(--text-color);
     margin-bottom: 1rem;
     margin-top: 0.2rem;
-  }
-  .RecipeCard-desc {
-    color: var(--text-light);
     flex-grow: 1;
-    font-size: var(--font-size);
-    letter-spacing: 1px;
   }
+  // .RecipeCard-desc {
+  //   color: var(--text-light);
+  //   font-size: var(--font-size);
+  //   letter-spacing: 1px;
+  // }
   .V-btn {
     display: inline-block;
     position: relative;

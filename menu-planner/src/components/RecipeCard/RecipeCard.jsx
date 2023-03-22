@@ -5,11 +5,16 @@ import IntroImg from "../IntroImg/IntroImg";
 function RecipeCard({ recipe }) {
   return (
     <div className="RecipeCard">
-      <IntroImg Srcs={recipe.src} pt="65%" />
+      <IntroImg Srcs={recipe.image} pt="65%" />
       <div className="RecipeCard-info">
-        <img className="user-img" src={recipe.authorImg} alt="x" />
-        <h3 className="RecipeCard-title">{recipe.title}</h3>
-        <p className="RecipeCard-desc">{recipe.desc}</p>
+        <img
+          className="user-img"
+          src={recipe.user?.image}
+          alt="x"
+          referrerPolicy="no-referrer"
+        />
+        <h3 className="RecipeCard-title">{recipe.name}</h3>
+        {/* <p className="RecipeCard-desc">{recipe.desc}</p> */}
         <button className="V-btn">
           <a className="V-link" href="#">
             VIEW RECIPE
