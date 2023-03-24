@@ -82,8 +82,8 @@ function Recipes() {
 
   return (
     <div>
-      <h1>Recipes</h1>
       <SearchBar onSearch={handleSearch} />
+      <h1 className="title">Recipes</h1>
       <div className="recipes-Con">
         {filteredRecipes.map((recipe, index) => (
           <RecipeCard key={index} recipe={recipe} />

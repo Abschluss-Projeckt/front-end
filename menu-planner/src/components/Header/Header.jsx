@@ -28,9 +28,9 @@ function Header() {
 
   return (
     <div className="header container">
-      <a href="/" className="logo">
+      <Link to="/" className="logo">
         Baba<span>Ghanoush</span>
-      </a>
+      </Link>
       <nav className="navi">
         {links.map((link) => (
           <Link

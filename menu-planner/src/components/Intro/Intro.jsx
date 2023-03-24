@@ -17,7 +17,7 @@ function Intro() {
     { src: "/imgs/Baba ghanoush .jpg", title: "Fast", path: "/recipes/fast" },
     {
       src: "/imgs/close-up-turkish-baklava.jpg",
-      title: "Fast",
+      title: "Oriantel",
       path: "/recipes/fast",
     },
     {

@@ -9,47 +9,133 @@
   --animation-speed: 1;
 }
 
+// .recipe-page {
+//   max-width: 800px;
+//   margin: 0 auto;
+//   padding: 20px;
+// }
+
+// .recipe {
+//   margin-bottom: 20px;
+// }
+
+// .recipe img {
+//   max-width: 100%;
+// }
+
+// .recipe h2 {
+//   font-size: 24px;
+//   margin-top: 0;
+// }
+
+// .recipe p {
+//   font-size: 18px;
+// }
+
+// .recipe ul,
+// .recipe ol {
+//   list-style: none;
+//   margin: 0;
+//   padding: 0;
+// }
+
+// .recipe li {
+//   font-size: 16px;
+//   margin-bottom: 5px;
+// }
+
+//   font-size: 24px;
+// }
+
 .recipe-page {
-  max-width: 800px;
+  padding: 1rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: var(--font-size);
+  box-shadow: 0 0.5rem 1rem var(--shadow-color);
+}
+
+.recipe-page button {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: var(--font-size);
+  cursor: pointer;
+  transition: background-color var(--animation-speed) ease-in-out;
+}
+
+.recipe-page button:hover {
+  background-color: darken(rgb(28, 245, 0.5), 10%);
+}
+
+.recipe .img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
   margin: 0 auto;
-  padding: 20px;
 }
-
-.recipe {
-  margin-bottom: 20px;
+.recipe section {
+  width: 85%;
+  margin: 0 auto;
 }
-
-.recipe img {
-  max-width: 100%;
+.recipe .img img {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
 }
-
 .recipe h2 {
-  font-size: 24px;
-  margin-top: 0;
+  text-align: center;
+  font-size: 2rem;
+  margin: 2rem 0 1rem;
+}
+
+.recipe h3 {
+  font-size: 1.5rem;
+  margin: 1rem 0;
 }
 
 .recipe p {
-  font-size: 18px;
+  margin: 1rem 0;
+  line-height: 1.5;
 }
 
-.recipe ul,
-.recipe ol {
-  list-style: none;
-  margin: 0;
+.recipe ul {
+  list-style-type: none;
+  margin: 1rem 0;
   padding: 0;
 }
 
-.recipe li {
-  font-size: 16px;
-  margin-bottom: 5px;
+.recipe ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }
 
-.loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-size: 24px;
+.recipe ul li p {
+  margin: 0;
+  margin-left: 0.5rem;
+  font-size: 1rem;
+}
+
+.recipe ol {
+  margin: 0.1rem 0;
+  padding: 2rem;
+}
+
+.recipe ol li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+.amount-M {
+  display: inline-block;
+  width: 5rem;
+  word-spacing: 4px;
 }
 
 /* Responsive*/

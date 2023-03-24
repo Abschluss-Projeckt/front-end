@@ -37,7 +37,12 @@ export default function Settings() {
       "--text-light": "#eceaea",
     },
   ];
-
+  useEffect(() => {
+    const storedSettings = JSON.parse(localStorage.getItem("settings"));
+    if (storedSettings) {
+      setSettings(storedSettings);
+    }
+  }, []);
   function changeTheme(i) {
     const _theme = { ...themes[i] };
     setTheme(i === 0 ? "light" : "dark");
@@ -46,6 +51,7 @@ export default function Settings() {
       _settings[key] = _theme[key];
     }
     setSettings(_settings);
+    localStorage.setItem("settings", JSON.stringify(_settings));
   }
 
   function changeColor(i) {
@@ -54,6 +60,7 @@ export default function Settings() {
     _settings["--primary-color"] = _color;
     setPrimaryColor(i);
     setSettings(_settings);
+    localStorage.setItem("settings", JSON.stringify(_settings));
   }
 
   function changeFontSize(i) {
@@ -62,6 +69,7 @@ export default function Settings() {
     _settings["--font-size"] = _size.value;
     setFontSize(i);
     setSettings(_settings);
+    localStorage.setItem("settings", JSON.stringify(_settings));
   }
 
   function changeAnimationSpeed(i) {
@@ -70,6 +78,7 @@ export default function Settings() {
     _settings["--animation-speed"] = _speed.value;
     setAnimationSpeed(i);
     setSettings(_settings);
+    localStorage.setItem("settings", JSON.stringify(_settings));
   }
 
   const primaryColors = [

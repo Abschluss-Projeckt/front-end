@@ -7,24 +7,33 @@ function Recipe(props) {
   return (
     <div className="recipe">
       <h2>{props.title}</h2>
-      <img src={props.image} alt={props.title} />
-      <p>{props.explanation}</p>
-      <h3>Ingredients:</h3>
-      <ul>
-        {props?.ingredients?.map((ingredient, index) => (
-          <li key={index}>
-            <p>{ingredient.amount}</p>
-            <p>{ingredient.measure}</p>
-            <p>{ingredient.name}</p>
-          </li>
-        ))}
-      </ul>
-      <h3>Instructions:</h3>
-      <ol>
-        {props?.description?.map((description, index) => (
-          <li key={index}>{description}</li>
-        ))}
-      </ol>
+      <div className="img">
+        <img src={props.image} alt={props.title} />
+      </div>
+      <section>
+        <p>{props.explanation}</p>
+        <h3>preparationTime:</h3>
+        <p>{props.preparationTime} min</p>
+        <h3>Ingredients:</h3>
+        <ul>
+          {props?.ingredients?.map((ingredient, index) => (
+            <li key={index}>
+              <div className="amount-M">
+                <p>
+                  {ingredient.amount} {ingredient.measure}
+                </p>
+              </div>
+              <p>{ingredient.name}</p>
+            </li>
+          ))}
+        </ul>
+        <h3>Instructions:</h3>
+        <ol>
+          {props?.description?.map((description, index) => (
+            <li key={index}>{description}</li>
+          ))}
+        </ol>
+      </section>
     </div>
   );
 }
@@ -57,6 +66,7 @@ function RecipePage() {
         explanation={recipe.explanation}
         ingredients={recipe.ingredients}
         description={recipe.description}
+        preparationTime={recipe.preparationTime}
       />
     </div>
   );
