@@ -2,8 +2,10 @@ import React from "react";
 import { useState } from "react";
 import Navigation from "../Navigation/Navigation";
 import "./Navigationicon.scss";
+
 function Navigationicon() {
   const [navigation, setNavigation] = useState(false);
+
   function closeN() {
     setNavigation(false);
   }

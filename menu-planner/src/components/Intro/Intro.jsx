@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import IntroImg from "../IntroImg/IntroImg";
 import "./Intro.scss";
 
@@ -47,7 +48,9 @@ function Intro() {
           <br />
           facilis ea quo voluptas modi non pariatur, amet quas quaerat, ipsum.
         </p>
-        <button className="start1">Go Ahead</button>
+        <Link to="/recipes">
+          <button className="start1">Go Ahead</button>
+        </Link>
       </section>
       <section className="part gallery">
         {imgs.map((elem, index) => (

@@ -42,11 +42,17 @@ button {
 @media screen and (max-width: 1280px) {
   .container {
     padding-inline: 16vw;
+    .part {
+      width: 42%;
+    }
   }
 }
 @media screen and (max-width: 1050px) {
   .container {
     padding-inline: 10vw;
+    .part {
+      width: 45%;
+    }
   }
 }
 @media screen and (max-width: 768px) {
@@ -54,15 +60,21 @@ button {
     padding-inline: 6vw;
   }
   .intro {
-    display: flex;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
+    flex-direction: column;
+    .part {
+      width: 80%;
+      padding: 0 !important;
+      text-align: center;
+      margin-right: 0;
+      margin-bottom: 2em;
+    }
+    .gallery {
+      width: 70%;
+      margin: 50px 100px;
+    }
   }
-  .part {
-    width: 100%;
-    padding: 0 !important;
-    text-align: center;
-    margin-bottom: 2em;
-  }
+
   .points {
     display: inline-block;
     margin: 1em;
@@ -75,9 +87,7 @@ button {
     margin-left: 24%;
     transform: translateX(-50%);
   }
-  .gallery {
-    margin: 100px;
-  }
+
   .footer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

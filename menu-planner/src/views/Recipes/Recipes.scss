@@ -14,5 +14,11 @@
 .recipes-Con {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-auto-flow: dense;
   grid-gap: 1.5em;
+}
+
+.recipe_con {
+  display: flex;
+  width: 30%;
 }

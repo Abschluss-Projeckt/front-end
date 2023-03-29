@@ -71,7 +71,7 @@ function Register() {
 
   return (
     <div className="register-container">
-      <h2>Register</h2>
+      <h1 className="title">Register</h1>
       <form onSubmit={handleForm}>
         <p>
           Have you already registered?{" "}

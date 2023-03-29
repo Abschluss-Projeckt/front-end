@@ -25,9 +25,10 @@
   display: flex;
   align-items: center;
   margin-bottom: 5vw;
+  justify-content: space-between;
 }
 .part {
-  width: 50%;
+  width: 40%;
 }
 .start1 {
   padding: 0.5em 0.7em;
@@ -61,7 +62,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.7vw;
-  margin-left: 16rem;
+
   .IntroImg {
     transform: scale(0);
     opacity: 0;

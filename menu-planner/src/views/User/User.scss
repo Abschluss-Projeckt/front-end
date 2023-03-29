@@ -1,0 +1,65 @@
+:root {
+  --background-color: #fff;
+  --background-light: #fff;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --primary-color: rgb(26, 255, 0);
+  --text-color: #0a0a0a;
+  --text-light: #575757;
+  --font-size: 1rem;
+  --animation-speed: 1;
+}
+
+.user-page {
+  margin: 2rem 0;
+}
+.user_info-pic {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  img {
+    width: 7em;
+    height: 7em;
+    border-radius: 50%;
+    margin-right: 2rem;
+  }
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.tabs-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid var(--text-light);
+}
+
+.tab-header-item {
+  cursor: pointer;
+  padding: 10px;
+  margin-right: 10px;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  color: var(--text-light);
+  transition: all 0.2s ease-in-out;
+  margin-bottom: -2px;
+}
+
+.tab-header-item:hover,
+.tab-header-item.active {
+  border-bottom: 3px solid var(--primary-color);
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.tabs-content {
+  padding: 20px;
+  font-size: 16px;
+  color: #555;
+}

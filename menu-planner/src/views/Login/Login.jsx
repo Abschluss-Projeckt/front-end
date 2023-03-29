@@ -48,7 +48,7 @@ export default function Login() {
 
   return (
     <div className="register-container">
-      <h2>Login</h2>
+      <h1 className="title">Login</h1>
       <form onSubmit={handleForm}>
         <p>
           Have you already registered?{" "}

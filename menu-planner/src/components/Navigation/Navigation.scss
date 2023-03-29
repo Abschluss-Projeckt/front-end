@@ -10,6 +10,7 @@
 }
 
 .Navigation {
+  padding-top: 2rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -19,6 +20,7 @@
   box-shadow: 0 0 0 1670px rgba(0, 0, 0, 0.2), 3px 0 5px var(--shadow-color);
   z-index: 999;
 }
+
 .Navigation-link {
   display: block;
   padding: 0.5em 1em;
@@ -27,6 +29,7 @@
   font-size: 1.1em;
   color: var(--text-color);
   text-decoration: none;
+
   &:hover {
     border-left-color: var(--primary-color);
     background-color: #0a0a0a25;
@@ -39,4 +42,104 @@
 svg {
   width: 1.2em;
   margin-right: 0.4em;
+}
+
+hr {
+  color: var(--primary-color);
+  width: 80%;
+  margin: 0 auto;
+}
+
+.user_icon_sidebar {
+  margin: 1rem 0;
+  margin-left: 1rem;
+
+  .user_pic {
+    display: flex;
+    align-items: center;
+    padding: 0.5em 1em;
+
+    img {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      margin-right: 0.7rem;
+    }
+  }
+
+  .user_dropdown {
+    border-radius: 0.5rem;
+    background-color: var(--background-color);
+    margin-left: 1rem;
+
+    .dropdown_list {
+      list-style: none;
+      padding: 0.5rem 0;
+
+      hr {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .dropdown_link {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9em;
+        color: var(--text-light);
+        text-transform: uppercase;
+
+        cursor: pointer;
+        &.active {
+          color: var(--primary-color);
+          font-weight: bolder;
+        }
+
+        &:hover {
+          color: var(--primary-color);
+          border-left: 0.3em solid var(--primary-color);
+        }
+
+        &:last-child {
+          font-weight: bolder;
+        }
+      }
+    }
+  }
+}
+
+.sign_btns_sidebar {
+  margin: 1rem;
+
+  .sign_links {
+    width: 90%;
+  }
+  button {
+    margin-top: 0;
+  }
+  .sign-in,
+  .sign-up {
+    background-color: unset;
+    color: var(--primary-color);
+
+    border-radius: 1.3rem;
+    padding: 0.5em 0.9em;
+    font-weight: bold;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    font-size: 1em;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 6px var(--shadow-color);
+
+    &:hover {
+      box-shadow: 0 1px 3px var(--shadow-color);
+    }
+    margin: 0.7em 0;
+    cursor: pointer;
+  }
+
+  .sign-up {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+  }
 }

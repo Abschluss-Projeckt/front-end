@@ -84,7 +84,9 @@ function Recipes() {
     <div>
       <SearchBar onSearch={handleSearch} />
       <h1 className="title">Recipes</h1>
-      <div className="recipes-Con">
+      <div
+        className={filteredRecipes.length === 1 ? "recipe_con" : "recipes-Con"}
+      >
         {filteredRecipes.map((recipe, index) => (
           <RecipeCard key={index} recipe={recipe} />
         ))}

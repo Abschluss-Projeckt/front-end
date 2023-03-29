@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect, useContext, useState } from "react";
+
+import { RecipeContext } from "../../contexts/Context";
+
 import Navigationicon from "../Navigationicon/Navigationicon";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import ReceiptLongRoundedIcon from "@mui/icons-material/ReceiptLongRounded";
@@ -6,7 +9,12 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import { Link, useLocation } from "react-router-dom";
 
 import "./Header.scss";
-function Header() {
+function Header({ openDropdown, setOpenDropdown }) {
+  const { loggedInCookie, getOneUser, user, logOut } =
+    useContext(RecipeContext);
+
+  useEffect(getOneUser, [loggedInCookie]);
+
   const location = useLocation();
   const links = [
     {
@@ -43,6 +51,62 @@ function Header() {
         ))}
       </nav>
       <Navigationicon />
+
+      {loggedInCookie ? (
+        <div className="user_icon">
+          <img
+            src={user.image}
+            alt="user_pic"
+            referrerPolicy="no-referrer"
+            onClick={(e) => {
+              e.stopPropagation();
+              setOpenDropdown(!openDropdown);
+            }}
+          />
+          {openDropdown && (
+            <div
+              className="user_dropdown"
+              onClick={() => setOpenDropdown(false)}
+            >
+              <ul className="dropdown_list">
+                <li>
+                  <Link className="dropdown_link" to={`/users/${user.id}`}>
+                    Recipes
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown_link" to={`/users/${user.id}`}>
+                    Likes
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown_link" to={`/users/${user.id}`}>
+                    Cookbook
+                  </Link>
+                </li>
+                <hr />
+                <li>
+                  <Link className="dropdown_link" to={`/users/${user.id}`}>
+                    Settings
+                  </Link>
+                </li>
+                <li onClick={logOut} className="dropdown_link">
+                  Logout
+                </li>
+              </ul>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="sign_btns">
+          <Link className="R-link" to="/login">
+            <button className="start sign-in">Sign-in</button>
+          </Link>
+          <Link className="R-link" to="/register">
+            <button className="start sign-up">Sign-up</button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

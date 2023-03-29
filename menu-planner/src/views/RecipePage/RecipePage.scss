@@ -52,7 +52,13 @@
   background-color: var(--background-color);
   color: var(--text-color);
   font-size: var(--font-size);
-  box-shadow: 0 0.5rem 1rem var(--shadow-color);
+  margin: 2rem 0;
+  // box-shadow: 0 0.5rem 1rem var(--shadow-color);
+}
+
+.back_btn {
+  width: 85%;
+  margin: 0 auto;
 }
 
 .recipe-page button {
@@ -80,6 +86,8 @@
   justify-content: center;
   width: 80%;
   margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 0.5rem 1rem var(--shadow-color);
 }
 .recipe section {
   width: 85%;
@@ -90,15 +98,25 @@
   width: 100%;
   border-radius: 10px;
 }
+
+.title_cont,
+.ingrd_cont,
+.steps_cont {
+  border-radius: 10px;
+  box-shadow: 0 0.5rem 1rem var(--shadow-color);
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+
+  h3 {
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem 0;
+  }
+}
+
 .recipe h2 {
   // text-align: center;
   font-size: 2rem;
-  margin: 2rem 0 1rem 0;
-}
-
-.recipe h3 {
-  font-size: 1.5rem;
-  margin: 1.5rem 0 1rem 0;
+  margin: 1rem 0;
 }
 
 .recipe p {
@@ -125,8 +143,7 @@
 }
 
 .recipe ol {
-  margin: 0.1rem 0;
-  padding: 2rem;
+  padding: 0.3rem 2rem;
 }
 
 .recipe ol li {

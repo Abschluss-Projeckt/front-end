@@ -23,11 +23,11 @@
 }
 .points {
   display: flex;
-
+  justify-content: space-between;
   align-items: center;
 }
 .partx {
-  width: 50%;
+  width: 40%;
 }
 img {
   width: 95%;
