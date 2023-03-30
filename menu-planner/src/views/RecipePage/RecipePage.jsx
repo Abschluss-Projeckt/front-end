@@ -132,20 +132,22 @@ function RecipePage() {
             <h2>{recipe.name}</h2>
             <div className="ranking">
               <div className="stars">{stars}</div>
-              {user.likedRecipes?.includes(recipeId) ? (
-                <FilledLikeBtn
-                  onClick={() => handleUnlikeOrUnsave("likedRecipes")}
-                />
-              ) : (
-                <LikeBtn onClick={() => handleLikeOrSave("likedRecipes")} />
-              )}
-              {user.savedRecipes?.includes(recipeId) ? (
-                <FilledSaveBtn
-                  onClick={() => handleUnlikeOrUnsave("savedRecipes")}
-                />
-              ) : (
-                <SaveBtn onClick={() => handleLikeOrSave("savedRecipes")} />
-              )}
+              <div className="like-and-save">
+                {user.likedRecipes?.includes(recipeId) ? (
+                  <FilledLikeBtn
+                    onClick={() => handleUnlikeOrUnsave("likedRecipes")}
+                  />
+                ) : (
+                  <LikeBtn onClick={() => handleLikeOrSave("likedRecipes")} />
+                )}
+                {user.savedRecipes?.includes(recipeId) ? (
+                  <FilledSaveBtn
+                    onClick={() => handleUnlikeOrUnsave("savedRecipes")}
+                  />
+                ) : (
+                  <SaveBtn onClick={() => handleLikeOrSave("savedRecipes")} />
+                )}
+              </div>
             </div>
             <p>{recipe.explanation}</p>
           </div>

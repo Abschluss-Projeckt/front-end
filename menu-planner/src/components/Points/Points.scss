@@ -25,17 +25,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 3rem;
 }
 .partx {
   width: 40%;
 }
 img {
-  width: 95%;
+  width: 100%;
   height: 350px;
 }
-.typo1 {
-  padding-left: 1em;
-}
+// .typo1 {
+//   padding-left: 1em;
+// }
 .why {
   border-left: 0.3em solid var(--primary-color);
   margin-bottom: 0.5em;

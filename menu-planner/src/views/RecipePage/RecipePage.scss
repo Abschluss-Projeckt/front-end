@@ -181,6 +181,7 @@
     background-color: var(--primary-color);
     margin-left: 0;
     border-radius: 0.7rem;
+    cursor: pointer;
   }
 
   .portion_title {
@@ -195,6 +196,9 @@
   color: var(--primary-color);
   font-weight: 700;
   margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   span {
     margin-right: 4px;
