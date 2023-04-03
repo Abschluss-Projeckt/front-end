@@ -37,7 +37,7 @@ function Header({ openDropdown, setOpenDropdown }) {
   return (
     <div className="header container">
       <Link to="/" className="logo">
-        Baba<span>Ghanoush</span>
+        tasty<span>Steps</span>
       </Link>
       <nav className="navi">
         {links.map((link) => (

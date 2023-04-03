@@ -7,6 +7,7 @@ export const RecipeContext = createContext();
 
 export default function Context({ children }) {
   const [recipes, setRecipes] = useState([]);
+  const [allUsers, setAllUsers] = useState([]);
   const [user, setUser] = useState({});
 
   const navigate = useNavigate();
@@ -20,8 +21,16 @@ export default function Context({ children }) {
       .catch((err) => console.log(err));
   };
 
+  const getAllUsers = () => {
+    axios
+      .get("/api/users")
+      .then((res) => setAllUsers(res.data))
+      .catch((err) => console.log(err));
+  };
+
   useEffect(() => {
     getAllRecipes();
+    getAllUsers();
   }, []);
 
   const getOneUser = () => {
@@ -49,7 +58,7 @@ export default function Context({ children }) {
 
   return (
     <RecipeContext.Provider
-      value={{ loggedInCookie, recipes, user, getOneUser, logOut }}
+      value={{ loggedInCookie, recipes, user, getOneUser, logOut, allUsers }}
     >
       {children}
     </RecipeContext.Provider>

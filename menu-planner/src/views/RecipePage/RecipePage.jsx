@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 
 import axios from "axios";
 
+import { Link } from "react-router-dom";
+
 import FilledLikeBtn from "@mui/icons-material/Favorite";
 import LikeBtn from "@mui/icons-material/FavoriteBorder";
 import SaveBtn from "@mui/icons-material/TurnedInNot";
@@ -13,15 +15,22 @@ import { RecipeContext } from "../../contexts/Context";
 import "./RecipePage.scss";
 
 function RecipePage() {
-  const { loggedInCookie, user } = useContext(RecipeContext);
+  const { loggedInCookie, user, allUsers } = useContext(RecipeContext);
 
   const [recipe, setRecipe] = useState({});
   const [portion, setPortion] = useState(0);
   const [amount, setAmount] = useState(1);
-  const [like, setLike] = useState(false);
+  const [filledStars, setFilledStart] = useState(0);
+  const [commentValue, setCommentValue] = useState("");
 
   const { recipeId } = useParams();
   const navigate = useNavigate();
+
+  const calculateRating = (rating) => {
+    const total = rating.recipeRanking?.reduce((total, num) => total + num, 0);
+
+    return Math.round(total / rating.recipeRanking?.length);
+  };
 
   useEffect(() => {
     axios
@@ -29,6 +38,7 @@ function RecipePage() {
       .then((res) => {
         setRecipe(res.data);
         setPortion(res.data?.portion);
+        setFilledStart(calculateRating(res.data));
       })
       .catch((err) => console.log(err));
   }, [recipeId]);
@@ -52,15 +62,26 @@ function RecipePage() {
     setAmount(portion / recipe.portion);
   }, [portion]);
 
-  const total = recipe.recipeRanking?.reduce((total, num) => total + num, 0);
+  // useEffect(() => {}, [recipeId])
+  const handleMouseOver = (index) => {
+    setFilledStart(index);
+  };
 
-  const rating = Math.round(total / recipe.recipeRanking?.length);
+  const handleMouseOut = () => {
+    setFilledStart(calculateRating(recipe));
+  };
 
-  const stars = [];
+  const ratedStars = [];
+
   for (let i = 1; i <= 5; i++) {
-    const filled = i <= rating ? "★" : "☆";
-    stars.push(
-      <span key={i} onClick={() => rateRecipe(i)}>
+    const filled = i <= filledStars ? "★" : "☆";
+    ratedStars.push(
+      <span
+        key={i}
+        onClick={() => rateRecipe(i)}
+        onMouseOver={() => handleMouseOver(i)}
+        onMouseOut={handleMouseOut}
+      >
         {filled}
       </span>
     );
@@ -80,6 +101,8 @@ function RecipePage() {
           console.log(res);
         })
         .catch((err) => console.log(err));
+    } else {
+      alert(`You should first sign up!`);
     }
   };
 
@@ -94,9 +117,10 @@ function RecipePage() {
         })
         .then((res) => {
           console.log(res);
-          setLike(true);
         })
         .catch((err) => console.log(err));
+    } else {
+      alert(`You should first sign up!`);
     }
   };
 
@@ -112,10 +136,52 @@ function RecipePage() {
         })
         .then((res) => {
           console.log(res);
-          setLike(false);
         })
         .catch((err) => console.log(err));
     }
+  };
+
+  const handleChange = (e) => {
+    setCommentValue(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const date = new Date();
+    const formattedDate = date
+      .toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+      })
+      .replace(/ /g, " ");
+
+    if (loggedInCookie) {
+      if (commentValue !== "") {
+        const comment = {
+          comment: commentValue,
+          user: user.id,
+          date: formattedDate,
+        };
+
+        recipe.comments.push(comment);
+
+        axios
+          .patch(`/api/recipes/${recipeId}`, {
+            ...recipe,
+            comments: recipe.comments,
+          })
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((err) => console.log(err));
+      }
+    } else {
+      alert(`You should first sign up!`);
+    }
+
+    setCommentValue("");
   };
 
   return (
@@ -127,31 +193,56 @@ function RecipePage() {
         <div className="img">
           <img src={recipe.image} alt={recipe.title} />
         </div>
+        <div className="recipe_nav">
+          <a href="#overview">Overview</a>
+          <a href="#ingredients">Ingredients</a>
+          <a href="#steps">Steps</a>
+          <a href="#comments">Comments</a>
+        </div>
         <section>
-          <div className="title_cont">
+          <div id="overview" className="title_cont">
             <h2>{recipe.name}</h2>
             <div className="ranking">
-              <div className="stars">{stars}</div>
+              <div className="stars">
+                {ratedStars}
+                {/* <small>Rate it!</small> */}
+              </div>
               <div className="like-and-save">
                 {user.likedRecipes?.includes(recipeId) ? (
                   <FilledLikeBtn
                     onClick={() => handleUnlikeOrUnsave("likedRecipes")}
+                    className="like_btn"
                   />
                 ) : (
-                  <LikeBtn onClick={() => handleLikeOrSave("likedRecipes")} />
+                  <LikeBtn
+                    onClick={() => handleLikeOrSave("likedRecipes")}
+                    className="like_btn"
+                  />
                 )}
                 {user.savedRecipes?.includes(recipeId) ? (
                   <FilledSaveBtn
                     onClick={() => handleUnlikeOrUnsave("savedRecipes")}
+                    className="save_btn"
                   />
                 ) : (
-                  <SaveBtn onClick={() => handleLikeOrSave("savedRecipes")} />
+                  <SaveBtn
+                    onClick={() => handleLikeOrSave("savedRecipes")}
+                    className="save_btn"
+                  />
                 )}
               </div>
             </div>
+            <div className="recipe-user">
+              <img
+                src={recipe.user?.image}
+                alt=""
+                referrerPolicy="no-referrer"
+              />
+              <h4>{recipe.user?.userName}</h4>
+            </div>
             <p>{recipe.explanation}</p>
           </div>
-          <div className="ingrd_cont">
+          <div id="ingredients" className="ingrd_cont">
             <h3>Preparation Time:</h3>
             <p>{recipe.preparationTime} min</p>
 
@@ -166,7 +257,7 @@ function RecipePage() {
                 +
               </p>
               <p className="portion_title">
-                {recipe.portion > 1 ? "Portionen" : "Portion"}
+                {recipe.portion > 1 ? "Servings" : "Serving"}
               </p>
             </div>
 
@@ -184,13 +275,61 @@ function RecipePage() {
               ))}
             </ul>
           </div>
-          <div className="steps_cont">
+          <div id="steps" className="steps_cont">
             <h3>Steps:</h3>
             <ol>
               {recipe?.description?.map((description, index) => (
                 <li key={index}>{description}</li>
               ))}
             </ol>
+          </div>
+          <div id="comments" className="comments_cont">
+            <h3>Comments</h3>
+            <div className="all_comments">
+              {recipe.comments?.length === 0 ? (
+                <p>
+                  There are no comments at the moment. Be the first to comment.
+                </p>
+              ) : (
+                recipe.comments?.map((comment, i) => {
+                  const commentUser = allUsers.find(
+                    (user) => user.id === comment.user
+                  );
+                  const date = new Date(comment.createdAt);
+                  const commentDate = date.toLocaleDateString("en-GB");
+                  return (
+                    <div key={i} className="comment">
+                      <div className="comment_user">
+                        <img
+                          src={commentUser?.image}
+                          alt=""
+                          referrerPolicy="no-referrer"
+                        />
+                        <div>
+                          <h4>{commentUser?.userName}</h4>
+                          <small>{comment.date}</small>
+                        </div>
+                      </div>
+                      <div className="comment_text">
+                        <p>{comment.comment}</p>
+                      </div>
+                    </div>
+                  );
+                })
+              )}
+            </div>
+
+            <form onSubmit={handleSubmit} className="your_comment">
+              <textarea
+                value={commentValue}
+                onChange={handleChange}
+                placeholder="Your comment..."
+              ></textarea>
+              <button type="submit">Send</button>
+              <button onClick={() => setCommentValue("")} type="reset">
+                Reset
+              </button>
+            </form>
           </div>
         </section>
       </div>
