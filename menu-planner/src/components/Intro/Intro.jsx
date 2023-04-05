@@ -15,7 +15,11 @@ function Intro() {
       title: "Fast",
       path: "/recipes/fast",
     },
-    { src: "/imgs/Baba ghanoush .jpg", title: "Fast", path: "/recipes/fast" },
+    {
+      src: "/imgs/Baba ghanoush .jpg",
+      title: "Appetizer",
+      path: "/recipes/fast",
+    },
     {
       src: "/imgs/close-up-turkish-baklava.jpg",
       title: "Oriantel",
@@ -23,19 +27,23 @@ function Intro() {
     },
     {
       src: "/imgs/grilled-chicken-breasts.jpg",
-      title: "Fast",
+      title: "Low Carb",
       path: "/recipes/fast",
     },
     {
       src: "/imgs/imam-bayildi-traditional-turkish-food.jpg",
-      title: "Fast",
+      title: "Turkish",
       path: "/recipes/fast",
     },
-    { src: "/imgs/pide-lahmajun.jpg", title: "Fast", path: "/recipes/fast" },
-    { src: "/imgs/spaghetti.jpg", title: "Fast", path: "/recipes/fast" },
+    {
+      src: "/imgs/pide-lahmajun.jpg",
+      title: "Pastries",
+      path: "/recipes/fast",
+    },
+    { src: "/imgs/spaghetti.jpg", title: "Italian", path: "/recipes/fast" },
     {
       src: "/imgs/turkish-arabic-traditional.jpg",
-      title: "Fast",
+      title: "Meat Dishes",
       path: "/recipes/fast",
     },
   ];
@@ -44,9 +52,9 @@ function Intro() {
       <section className="part typo">
         <h1 className="title">About us</h1>
         <p className="S-talk">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae
-          <br />
-          facilis ea quo voluptas modi non pariatur, amet quas quaerat, ipsum.
+          tastySteps is a place where you can please your soul and tummy with
+          delicious food recepies of all cuisine. And our service is absolutely
+          free. So start exploring now.
         </p>
         <Link to="/recipes">
           <button className="start1">Go Ahead</button>
