@@ -12,6 +12,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 2rem;
+  width: 100%;
 }
 .s-input {
   padding: 0.5rem;
@@ -21,6 +22,7 @@
   border-bottom: 2px solid #555;
   outline: none;
   flex-grow: 1;
+  width: 100%;
 }
 
 .s-btn {
