@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import IntroImg from "../IntroImg/IntroImg";
 
 function RecipeCard({ recipe }) {
-  console.log(recipe, recipe.image);
   return (
     <div className="RecipeCard">
       <IntroImg Srcs={recipe.image} pt="65%" />

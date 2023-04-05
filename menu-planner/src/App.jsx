@@ -21,7 +21,12 @@ function App() {
     <Router>
       <Context>
         <Header openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
-        <div className="container main" onClick={() => setOpenDropdown(false)}>
+        <div
+          className="container main"
+          onClick={() => {
+            setOpenDropdown(false);
+          }}
+        >
           <Routes>
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />

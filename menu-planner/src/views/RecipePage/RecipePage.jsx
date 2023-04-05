@@ -15,13 +15,15 @@ import { RecipeContext } from "../../contexts/Context";
 import "./RecipePage.scss";
 
 function RecipePage() {
-  const { loggedInCookie, user, allUsers } = useContext(RecipeContext);
+  const { loggedInCookie, user, allUsers, getAllRecipes } =
+    useContext(RecipeContext);
 
   const [recipe, setRecipe] = useState({});
   const [portion, setPortion] = useState(0);
   const [amount, setAmount] = useState(1);
   const [filledStars, setFilledStart] = useState(0);
   const [commentValue, setCommentValue] = useState("");
+  const [deletePopover, setDeletePopover] = useState(false);
 
   const { recipeId } = useParams();
   const navigate = useNavigate();
@@ -184,10 +186,53 @@ function RecipePage() {
     setCommentValue("");
   };
 
+  const handleDeletePopover = () => {
+    if (loggedInCookie) {
+      axios
+        .delete(`/api/recipes/${recipeId}`)
+        .then((res) => {
+          console.log(res);
+          getAllRecipes();
+          navigate(-1);
+        })
+        .catch((err) => console.log(err));
+    }
+
+    const fileName = recipe.image.replace("/uploads/", "");
+
+    axios
+      .delete(`/api/delete-image/${fileName}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="recipe-page">
       <div className="back_btn">
-        <button onClick={() => navigate("/recipes")}>Back</button>
+        <button onClick={() => navigate(-1)}>Back</button>
+        {recipe.user?._id === loggedInCookie ? (
+          <div>
+            <button
+              className="deleteBtn"
+              onClick={() => setDeletePopover(!deletePopover)}
+            >
+              Delete
+            </button>
+            {deletePopover && (
+              <div className="delete_popover">
+                <p>
+                  Are you sure you want to <br /> delete this recipe?
+                </p>
+                <div>
+                  <button onClick={() => setDeletePopover(false)}>
+                    Cancel
+                  </button>
+                  <button onClick={handleDeletePopover}>Delete</button>
+                </div>
+              </div>
+            )}
+          </div>
+        ) : null}
       </div>
       <div className="recipe">
         <div className="img">

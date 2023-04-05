@@ -177,7 +177,7 @@ function CreateRecipe() {
     if (loggedInCookie) {
       let recipeToPost = {
         name: recipe.name,
-        image: "",
+        image: `/uploads/${selectedFile.name}`,
         explanation: recipe.explanation,
         portion: recipe.portion,
         ingredients: recipe.ingredients,
@@ -224,70 +224,54 @@ function CreateRecipe() {
   };
   return (
     <div className="create_recipe_cont">
-      <h1>Create Recipe</h1>
+      <h1 className="title">Create Recipe</h1>
       <form onSubmit={handleSubmit}>
-        <div className="create_basics"></div>
-        <div>
-          <label htmlFor="name">Name of your recipe: </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={recipe.name}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="image">Photo of your recipe: </label>
-          <input
-            type="file"
-            id="image"
-            name="image"
-            onChange={handleFileSelect}
-          />
-        </div>
-        <div>
-          <label htmlFor="explanation">
-            Tell us the story behind your recipe:{" "}
-          </label>
-          <textarea
-            id="explanation"
-            name="explanation"
-            value={recipe.explanation}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="servings">Servings</label>
-          <input
-            type="number"
-            id="servings"
-            name="portion"
-            value={recipe.portion}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="preparationTime">Preparation time: </label>
-          <input
-            type="number"
-            id="preparationTime"
-            name="preparationTime"
-            value={recipe.preparationTime}
-            onChange={handleInputChange}
-          />
-          <span> min.</span>
-        </div>
-        <div>
-          <h3>Categories</h3>
-
+        <div className="create_basics">
+          <h2>Basic Informations</h2>
           <div>
+            <label htmlFor="name">Name of your recipe: </label>
+
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={recipe.name}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="image">Photo of your recipe: </label>
+            <input
+              type="file"
+              id="image"
+              name="image"
+              onChange={handleFileSelect}
+              className="image_input"
+            />
+          </div>
+          <div>
+            <label htmlFor="explanation">
+              Tell us the story behind your recipe:{" "}
+            </label>
+            <textarea
+              id="explanation"
+              name="explanation"
+              value={recipe.explanation}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+
+        <div className="create_categories">
+          <h2>Categories</h2>
+          <div className="category_option">
+            <label htmlFor="mealType">Type of Meal: </label>
             <select
+              id="mealType"
               name="mealType"
               value={recipe.category?.mealType}
               onChange={(event) => handleCategoryChange(event)}
             >
-              Meal Type:
               <option value="">Please choose meal type</option>
               {category.mealType.map((mt, i) => (
                 <option key={i} value={mt}>
@@ -297,13 +281,14 @@ function CreateRecipe() {
             </select>
           </div>
 
-          <div>
+          <div className="category_option">
+            <label htmlFor="meal">Meal Option: </label>
             <select
+              id="meal"
               name="meal"
               value={recipe.category?.meal}
               onChange={(event) => handleCategoryChange(event)}
             >
-              Meal Option:
               <option value="">Please choose meal option</option>
               {category.meal.map((m, i) => (
                 <option key={i} value={m}>
@@ -313,8 +298,10 @@ function CreateRecipe() {
             </select>
           </div>
 
-          <div>
+          <div className="category_option">
+            <label htmlFor="region">Region: </label>
             <select
+              id="region"
               name="region"
               value={recipe.category?.region}
               onChange={(event) => handleCategoryChange(event)}
@@ -329,8 +316,10 @@ function CreateRecipe() {
             </select>
           </div>
 
-          <div>
+          <div className="category_option">
+            <label htmlFor="nutrition">Nutrition: </label>
             <select
+              id="nutrition"
               name="nutrition"
               value={recipe.category?.nutrition}
               onChange={(event) => handleCategoryChange(event)}
@@ -344,59 +333,112 @@ function CreateRecipe() {
               ))}
             </select>
           </div>
-        </div>
-        <div>
-          <h3>Ingredients</h3>
-          {recipe.ingredients?.map((ingredient, index) => (
-            <div key={index}>
+          <div className="serving">
+            <div>
+              <label htmlFor="servings">
+                <h3>Servings</h3>
+              </label>
               <input
-                type="text"
-                name="name"
-                value={ingredient.name}
-                onChange={(event) => handleIngredientChange(event, index)}
-              />
-              <input
+                className="serving_input"
                 type="number"
-                name="amount"
-                value={ingredient.quantity}
-                onChange={(event) => handleIngredientChange(event, index)}
+                id="servings"
+                name="portion"
+                value={recipe.portion}
+                onChange={handleInputChange}
               />
-              <select
-                type=""
-                name="measure"
-                value={ingredient.measure}
-                onChange={(event) => handleIngredientChange(event, index)}
-              >
-                Unit:
-                <option value="">Please choose a unit</option>
-                {unit.map((u, i) => (
-                  <option key={i} value={u}>
-                    {u}
-                  </option>
-                ))}
-              </select>
+            </div>
+            <div>
+              <label htmlFor="preparationTime">
+                <h3>Preparation time</h3>
+              </label>
+              <input
+                className="serving_input"
+                type="number"
+                id="preparationTime"
+                name="preparationTime"
+                value={recipe.preparationTime}
+                onChange={handleInputChange}
+              />
+              <span> min.</span>
+            </div>
+          </div>
+        </div>
+        <div className="create_ingrd">
+          <h2>Ingredients</h2>
+          {recipe.ingredients?.map((ingredient, index) => (
+            <div key={index} className="ingrd_section">
+              <div>
+                <label htmlFor="name">Name</label>
+                <br />
+                <input
+                  id="name"
+                  className="first_child"
+                  type="text"
+                  name="name"
+                  value={ingredient.name}
+                  onChange={(event) => handleIngredientChange(event, index)}
+                />
+              </div>
+              <div>
+                <label htmlFor="amount">Amount</label>
+                <br />
+                <input
+                  id="amount"
+                  type="number"
+                  name="amount"
+                  value={ingredient.quantity}
+                  onChange={(event) => handleIngredientChange(event, index)}
+                />
+              </div>
+              <div>
+                <label htmlFor="unit">Unit</label>
+                <br />
+                <select
+                  id="unit"
+                  type=""
+                  name="measure"
+                  value={ingredient.measure}
+                  onChange={(event) => handleIngredientChange(event, index)}
+                >
+                  Unit:
+                  <option value="">Please choose a unit</option>
+                  {unit.map((u, i) => (
+                    <option key={i} value={u}>
+                      {u}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
           ))}
-          <button type="button" onClick={handleAddIngredient}>
+          <button
+            className="create_btn"
+            type="button"
+            onClick={handleAddIngredient}
+          >
             Add Ingredient
           </button>
         </div>
-        <div>
-          <h3>Steps</h3>
+        <div className="create_steps">
+          <h2>Steps</h2>
           {recipe.description.map((step, index) => (
             <div key={index}>
+              <label htmlFor={`step${index + 1}`}>Step {index + 1}</label>
               <textarea
+                id={`step${index + 1}`}
                 value={step}
                 onChange={(event) => handleStepChange(event, index)}
               />
             </div>
           ))}
-          <button type="button" onClick={handleAddStep}>
+          <button className="create_btn" type="button" onClick={handleAddStep}>
             Add Steps
           </button>
         </div>
         <div>
-          <button type="submit">Tarifi Yayınla</button>
+          <button className="create_btn last_btn" type="submit">
+            Tarifi Yayınla
+          </button>
         </div>
       </form>
     </div>
