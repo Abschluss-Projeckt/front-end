@@ -58,7 +58,15 @@ export default function Context({ children }) {
 
   return (
     <RecipeContext.Provider
-      value={{ loggedInCookie, recipes, user, getOneUser, logOut, allUsers }}
+      value={{
+        loggedInCookie,
+        recipes,
+        user,
+        getOneUser,
+        logOut,
+        allUsers,
+        getAllRecipes,
+      }}
     >
       {children}
     </RecipeContext.Provider>

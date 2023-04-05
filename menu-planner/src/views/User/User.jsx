@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { RecipeContext } from "../../contexts/Context";
 
@@ -15,9 +15,16 @@ function User() {
 
   const [activeTab, setActiveTab] = useState(0);
 
-  const { userId } = useParams();
+  const param = useParams();
 
   useEffect(getOneUser, []);
+
+  useEffect(() => {
+    const tabIndex = tabs.findIndex(
+      (tab) => tab.label.toLowerCase() === param.tab
+    );
+    setActiveTab(tabIndex);
+  }, [param.tab]);
 
   const tabs = [
     {
@@ -48,15 +55,15 @@ function User() {
         <div className="tabs">
           <div className="tabs-header">
             {tabs.map((tab, index) => (
-              <div
+              <Link
                 key={index}
                 className={`tab-header-item ${
                   index === activeTab ? "active" : ""
                 }`}
-                onClick={() => handleTabClick(index)}
+                to={`/users/${user.id}/${tab.label.toLowerCase()}`}
               >
                 {tab.label}
-              </div>
+              </Link>
             ))}
           </div>
           <div className="tabs-content">{tabs[activeTab].content}</div>

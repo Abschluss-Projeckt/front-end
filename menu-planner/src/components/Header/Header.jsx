@@ -70,17 +70,26 @@ function Header({ openDropdown, setOpenDropdown }) {
             >
               <ul className="dropdown_list">
                 <li>
-                  <Link className="dropdown_link" to={`/users/${user.id}`}>
+                  <Link
+                    className="dropdown_link"
+                    to={`/users/${user.id}/recipes`}
+                  >
                     Recipes
                   </Link>
                 </li>
                 <li>
-                  <Link className="dropdown_link" to={`/users/${user.id}`}>
+                  <Link
+                    className="dropdown_link"
+                    to={`/users/${user.id}/likes`}
+                  >
                     Likes
                   </Link>
                 </li>
                 <li>
-                  <Link className="dropdown_link" to={`/users/${user.id}`}>
+                  <Link
+                    className="dropdown_link"
+                    to={`/users/${user.id}/cookbook`}
+                  >
                     Cookbook
                   </Link>
                 </li>

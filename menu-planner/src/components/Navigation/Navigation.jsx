@@ -63,12 +63,17 @@ function Navigation({ close }) {
           <div className="user_dropdown">
             <ul className="dropdown_list">
               <li className="dropdown_link">
-                <Link to={`/users/${user._id}`}>Recipes</Link>
+                <Link to={`/users/${user.id}/recipes`}>Recipes</Link>
               </li>
-              <li className="dropdown_link">Likes</li>
-              <li className="dropdown_link">Cookbook</li>
-
-              <li className="dropdown_link">Settings</li>
+              <li className="dropdown_link">
+                <Link to={`/users/${user.id}/likes`}>Likes</Link>
+              </li>
+              <li className="dropdown_link">
+                <Link to={`/users/${user.id}/cookbook`}>Cookbook</Link>
+              </li>
+              <li className="dropdown_link">
+                <Link to={`/users/${user.id}`}>Settings</Link>
+              </li>
               <li onClick={logOut} className="dropdown_link">
                 Logout
               </li>
