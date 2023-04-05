@@ -1,3 +1,14 @@
+:root {
+  --background-color: #fff;
+  --background-light: #fff;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --primary-color: rgb(26, 255, 0);
+  --text-color: #0a0a0a;
+  --text-light: #575757;
+  --font-size: 1rem;
+  --animation-speed: 1;
+}
+
 .footer {
   padding-block: 3em;
   display: grid;
@@ -5,7 +16,7 @@
   grid-gap: 3em;
 }
 .f-title {
-  color: goldenrod;
+  color: rgb(255, 193, 7);
   opacity: 1;
   font-size: 1.1em;
   font-weight: bold;

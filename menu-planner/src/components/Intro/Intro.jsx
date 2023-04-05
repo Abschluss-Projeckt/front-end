@@ -8,43 +8,47 @@ function Intro() {
     {
       src: "/imgs/salad.jpg",
       title: "Vegan",
-      path: "/recipes/vegan",
+      path: "/categories/vegan",
     },
     {
       src: "/imgs/cheese-burger.jpg",
-      title: "Fast",
-      path: "/recipes/fast",
+      title: "Meat",
+      path: "/categories/meat%20dishes",
     },
     {
       src: "/imgs/Baba ghanoush .jpg",
       title: "Appetizer",
-      path: "/recipes/fast",
+      path: "/categories/appetizer",
     },
     {
       src: "/imgs/close-up-turkish-baklava.jpg",
-      title: "Oriantel",
-      path: "/recipes/fast",
+      title: "Dessert",
+      path: "/categories/dessert",
     },
     {
       src: "/imgs/grilled-chicken-breasts.jpg",
-      title: "Low Carb",
-      path: "/recipes/fast",
+      title: "Asian",
+      path: "/categories/asian",
     },
     {
       src: "/imgs/imam-bayildi-traditional-turkish-food.jpg",
       title: "Turkish",
-      path: "/recipes/fast",
+      path: "/categories/turkish",
     },
     {
       src: "/imgs/pide-lahmajun.jpg",
-      title: "Pastries",
-      path: "/recipes/fast",
+      title: "Oriental",
+      path: "/categories/oriental",
     },
-    { src: "/imgs/spaghetti.jpg", title: "Italian", path: "/recipes/fast" },
+    {
+      src: "/imgs/spaghetti.jpg",
+      title: "Italian",
+      path: "/categories/italian",
+    },
     {
       src: "/imgs/turkish-arabic-traditional.jpg",
-      title: "Meat Dishes",
-      path: "/recipes/fast",
+      title: "Main Course",
+      path: "/categories/main%20course",
     },
   ];
   return (
@@ -62,7 +66,13 @@ function Intro() {
       </section>
       <section className="part gallery">
         {imgs.map((elem, index) => (
-          <IntroImg key={index} Srcs={elem.src} title={elem.title} pt={"75%"} />
+          <IntroImg
+            key={index}
+            path={elem.path}
+            Srcs={elem.src}
+            title={elem.title}
+            pt={"75%"}
+          />
         ))}
       </section>
     </div>

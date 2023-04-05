@@ -3,7 +3,7 @@ import React, { useEffect, useContext, useState } from "react";
 import { RecipeContext } from "../../contexts/Context";
 
 import Navigationicon from "../Navigationicon/Navigationicon";
-import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
+import CategoryIcon from "@mui/icons-material/Category";
 import ReceiptLongRoundedIcon from "@mui/icons-material/ReceiptLongRounded";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { Link, useLocation } from "react-router-dom";
@@ -18,14 +18,14 @@ function Header({ openDropdown, setOpenDropdown }) {
   const location = useLocation();
   const links = [
     {
-      name: "Home",
-      path: "/",
-      icon: <HomeRoundedIcon />,
-    },
-    {
       name: "Recipes",
       path: "/recipes",
       icon: <ReceiptLongRoundedIcon />,
+    },
+    {
+      name: "Categories",
+      path: "/categories",
+      icon: <CategoryIcon />,
     },
     {
       name: "Settings",

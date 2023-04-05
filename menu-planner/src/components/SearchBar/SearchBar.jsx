@@ -14,13 +14,12 @@ function SearchBar({ onSearch }) {
     <div>
       <form className="s-form" onSubmit={handleSubmit}>
         <input
-          className="s-input"
           type="text"
           placeholder="Search..."
           value={searchTerm}
           onChange={handleInputChange}
         />
-        <button className="s-btn" type="submit">
+        <button type="submit">
           <SearchIcon />
         </button>
       </form>

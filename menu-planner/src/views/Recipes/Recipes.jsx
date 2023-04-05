@@ -24,7 +24,7 @@ function Recipes() {
   const filteredRecipes = searchRecipes(searchTerm);
 
   return (
-    <div>
+    <div className="recipes">
       <SearchBar onSearch={handleSearch} />
       <h1 className="title">Recipes</h1>
 

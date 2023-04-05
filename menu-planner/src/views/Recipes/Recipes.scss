@@ -11,6 +11,11 @@
 @function getgetAnimationDuration($durationn: number) {
   @return calc($durationn * var(--animation-speed));
 }
+
+.recipes {
+  margin-bottom: 2rem;
+}
+
 .recipes-Con {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -19,13 +24,11 @@
 }
 
 .recipe_con {
-  display: flex;
   width: 30%;
 }
 
 @media screen and (max-width: 900px) {
   .recipe_con {
-    display: flex;
     width: 50%;
   }
 }

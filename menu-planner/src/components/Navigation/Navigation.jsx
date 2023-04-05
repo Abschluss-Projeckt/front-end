@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import { RecipeContext } from "../../contexts/Context";
 
 import "./Navigation.scss";
-import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
+import CategoryIcon from "@mui/icons-material/Category";
 import ReceiptLongRoundedIcon from "@mui/icons-material/ReceiptLongRounded";
 import SettingsIcon from "@mui/icons-material/Settings";
 
@@ -18,14 +18,14 @@ function Navigation({ close }) {
   const location = useLocation();
   const links = [
     {
-      name: "Home",
-      path: "/",
-      icon: <HomeRoundedIcon />,
-    },
-    {
       name: "Recipes",
       path: "/recipes",
       icon: <ReceiptLongRoundedIcon />,
+    },
+    {
+      name: "Categories",
+      path: "/categories",
+      icon: <CategoryIcon />,
     },
     {
       name: "Settings",
