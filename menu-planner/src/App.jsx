@@ -11,6 +11,7 @@ import Context from "./contexts/Context";
 import Login from "./views/Login/Login";
 import RecipePage from "./views/RecipePage/RecipePage";
 import User from "./views/User/User";
+import Category from "./views/Category/Category";
 
 function App() {
   const [openDropdown, setOpenDropdown] = useState(false);
@@ -28,6 +29,7 @@ function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/recipes/:recipeId" element={<RecipePage />} />
             <Route path="/users/:userId" element={<User />} />
+            <Route path="/Category" element={<Category />} />
           </Routes>
         </div>
         <footer>
