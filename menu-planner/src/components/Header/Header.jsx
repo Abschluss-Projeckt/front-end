@@ -94,11 +94,6 @@ function Header({ openDropdown, setOpenDropdown }) {
                   </Link>
                 </li>
                 <hr />
-                <li>
-                  <Link className="dropdown_link" to={`/users/${user.id}`}>
-                    Settings
-                  </Link>
-                </li>
                 <li onClick={logOut} className="dropdown_link">
                   Logout
                 </li>

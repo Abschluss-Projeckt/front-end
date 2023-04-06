@@ -325,7 +325,7 @@ function CreateRecipe() {
               onChange={(event) => handleCategoryChange(event)}
             >
               Nutrition:
-              <option value="">Please choose region</option>
+              <option value="">Please choose nutrition</option>
               {category.nutrition.map((n, i) => (
                 <option key={i} value={n}>
                   {n}
@@ -437,7 +437,7 @@ function CreateRecipe() {
         </div>
         <div>
           <button className="create_btn last_btn" type="submit">
-            Tarifi Yayınla
+            Post the Recipe
           </button>
         </div>
       </form>

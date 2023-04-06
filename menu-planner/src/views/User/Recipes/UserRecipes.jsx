@@ -19,6 +19,15 @@ function UserRecipes() {
         <div
           className={userRecipes.length === 1 ? "recipe_con" : "recipes-Con"}
         >
+          <button className="recipe_cont_create_btn">
+            <Link
+              className="recipe_cont_create"
+              to={`/users/${user.id}/create-recipe`}
+            >
+              <span>+</span> Create a new recipe
+            </Link>
+          </button>
+
           {userRecipes.length > 0
             ? userRecipes.map((recipe, i) => (
                 <RecipeCard key={i} recipe={recipe} />

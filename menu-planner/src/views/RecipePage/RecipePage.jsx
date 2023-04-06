@@ -119,6 +119,7 @@ function RecipePage() {
         })
         .then((res) => {
           console.log(res);
+          location.reload();
         })
         .catch((err) => console.log(err));
     } else {
@@ -138,6 +139,7 @@ function RecipePage() {
         })
         .then((res) => {
           console.log(res);
+          location.reload();
         })
         .catch((err) => console.log(err));
     }

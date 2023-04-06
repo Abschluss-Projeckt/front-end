@@ -56,6 +56,9 @@ button {
   }
 }
 @media screen and (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
   .container {
     padding-inline: 6vw;
   }

@@ -9,6 +9,32 @@
   --animation-speed: 1;
 }
 
+.recipe_cont_create_btn {
+  display: block;
+  background-color: transparent;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  width: 185px;
+  height: 2.5rem;
+  border: 2px solid var(--primary-color);
+
+  &:hover {
+    box-shadow: 0 0.2rem 0.3rem var(--shadow-color);
+    background-color: var(--primary-color);
+  }
+}
+.recipe_cont_create {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  font-weight: bold;
+  &:hover {
+    color: white;
+  }
+}
+
 .new_recipe_cont {
   display: flex;
   justify-content: center;

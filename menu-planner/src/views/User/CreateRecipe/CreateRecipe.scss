@@ -19,7 +19,7 @@
 }
 
 .create_basics {
-  width: 90%;
+  width: 100%;
   background-color: var(--background-color);
   padding: 2rem;
   border-radius: 1rem;
@@ -47,6 +47,7 @@
     outline: none;
     padding: 0.8rem;
     font-size: 1rem;
+    max-width: 80%;
 
     &:focus {
       border: 1px solid var(--primary-color);
@@ -103,7 +104,7 @@
 }
 
 .create_categories {
-  width: 90%;
+  width: 100%;
   background-color: var(--background-color);
   padding: 2rem;
   border-radius: 1rem;
@@ -125,7 +126,16 @@
     margin: 0.5rem 0;
 
     label {
-      margin-bottom: 8px;
+      width: 150px;
+      margin-top: 8px;
+    }
+
+    select {
+      width: 12rem;
+      padding: 7px;
+      font-size: 1rem;
+      outline: none;
+      margin-top: 0.5rem;
     }
   }
 }
@@ -139,11 +149,11 @@
 
   div {
     margin-right: 1rem;
+    margin-bottom: 1rem;
   }
 }
 
 .serving_input {
-  margin-left: -10px;
   width: 5rem;
   margin-top: 0.5rem;
   height: 2rem;
@@ -159,7 +169,7 @@
 }
 
 .create_ingrd {
-  width: 90%;
+  width: 100%;
   background-color: var(--background-color);
   padding: 2rem;
   border-radius: 1rem;
@@ -211,7 +221,7 @@
 }
 
 .create_steps {
-  width: 90%;
+  width: 100%;
   background-color: var(--background-color);
   padding: 2rem;
   border-radius: 1rem;
@@ -254,7 +264,7 @@
 
 .create_btn {
   padding: 0.7rem 1.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 1rem;
   color: var(--background-color);
   font-weight: 700;
   font-size: 1rem;

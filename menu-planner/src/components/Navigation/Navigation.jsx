@@ -71,9 +71,6 @@ function Navigation({ close }) {
               <li className="dropdown_link">
                 <Link to={`/users/${user.id}/cookbook`}>Cookbook</Link>
               </li>
-              <li className="dropdown_link">
-                <Link to={`/users/${user.id}`}>Settings</Link>
-              </li>
               <li onClick={logOut} className="dropdown_link">
                 Logout
               </li>
