@@ -177,7 +177,7 @@ function CreateRecipe() {
     if (loggedInCookie) {
       let recipeToPost = {
         name: recipe.name,
-        image: `/uploads/${selectedFile.name}`,
+        image: `/imgs/${selectedFile.name}`,
         explanation: recipe.explanation,
         portion: recipe.portion,
         ingredients: recipe.ingredients,
