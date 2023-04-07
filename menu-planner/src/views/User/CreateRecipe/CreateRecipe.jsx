@@ -210,17 +210,6 @@ function CreateRecipe() {
     } else {
       alert(`You should first sign up!`);
     }
-
-    setRecipe({
-      name: "",
-      image: "",
-      explanation: "",
-      portion: 0,
-      ingredients: [{ name: "", amount: 0, measure: "" }],
-      description: [""],
-      category: {},
-      preparationTime: 0,
-    });
   };
   return (
     <div className="create_recipe_cont">
